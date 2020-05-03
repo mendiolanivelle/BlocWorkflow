@@ -1,4 +1,5 @@
 import 'package:blocworkflow/bloc/profile_bloc.dart';
+import 'package:blocworkflow/model/account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,7 +17,7 @@ class _ProfileState extends State<Profile> {
         ),
         body: BlocConsumer<ProfileBloc, ProfileState>(
           listener: (context, state) {
-            // TODO: implement listener
+            Navigator.of(context).pushReplacementNamed('/');
           },
           builder: (context, state) {
             return buildProfileInitial(context);
@@ -41,7 +42,7 @@ Widget buildProfileInitial(BuildContext context) {
               ),
             ),
             Text(
-              'Nivelle',
+              Account.username,
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w700,
@@ -63,7 +64,7 @@ Widget buildProfileInitial(BuildContext context) {
               ),
             ),
             Text(
-              'NivelleSky',
+              Account.password,
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.w700,
@@ -76,9 +77,7 @@ Widget buildProfileInitial(BuildContext context) {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.network('https://picsum.photos/id/237/250/250')
-          ],
+          children: <Widget>[Image.network(Account.imageURL)],
         ),
         SizedBox(
           height: 30,
@@ -101,7 +100,9 @@ Widget buildProfileInitial(BuildContext context) {
                 right: 70,
               ),
               splashColor: Colors.grey,
-              onPressed: () {},
+              onPressed: () {
+                triggerLogoutButton(context);
+              },
               child: Text(
                 'Logout',
                 style: TextStyle(
@@ -114,4 +115,9 @@ Widget buildProfileInitial(BuildContext context) {
       ],
     ),
   );
+}
+
+void triggerLogoutButton(BuildContext context) {
+  final profileBloc = BlocProvider.of<ProfileBloc>(context);
+  profileBloc.add(OnClickLogout());
 }
