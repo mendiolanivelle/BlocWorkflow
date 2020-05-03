@@ -21,15 +21,15 @@ class OperationBloc extends Bloc<OperationEvent, OperationState> {
       yield OperationRefresh(totalNumber);
     } else if (event is OnClickMinus) {
       OnClickMinus(event.firstNumber, event.secondNumber);
-      totalNumber = event.firstNumber + event.secondNumber;
+      totalNumber = event.firstNumber - event.secondNumber;
       yield OperationRefresh(totalNumber);
     } else if (event is OnClickMultiply) {
       OnClickMultiply(event.firstNumber, event.secondNumber);
-      totalNumber = event.firstNumber + event.secondNumber;
+      totalNumber = event.firstNumber * event.secondNumber;
       yield OperationRefresh(totalNumber);
     } else if (event is OnClickDivide) {
       OnClickDivide(event.firstNumber, event.secondNumber);
-      totalNumber = event.firstNumber + event.secondNumber;
+      totalNumber = event.firstNumber / event.secondNumber;
       yield OperationRefresh(totalNumber);
     }
   }
