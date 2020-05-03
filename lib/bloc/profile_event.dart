@@ -4,12 +4,8 @@ abstract class ProfileEvent extends Equatable {
   const ProfileEvent();
 }
 
-class OnClickLogin extends ProfileEvent {
-  final String username;
-  final String password;
-
-  OnClickLogin(this.username, this.password);
+class OnClickLogout extends ProfileEvent {
   @override
   // TODO: implement props
-  List<Object> get props => [username, password];
+  List<Object> get props => [];
 }

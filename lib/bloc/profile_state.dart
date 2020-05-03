@@ -8,3 +8,9 @@ class ProfileInitial extends ProfileState {
   @override
   List<Object> get props => [];
 }
+
+class LogoutSuccess extends ProfileState {
+  @override
+  // TODO: implement props
+  List<Object> get props => null;
+}
