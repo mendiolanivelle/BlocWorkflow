@@ -10,7 +10,7 @@ class OperationInitial extends OperationState {
 }
 
 class OperationRefresh extends OperationState {
-  final int result;
+  final double result;
 
   OperationRefresh(this.result);
   @override
