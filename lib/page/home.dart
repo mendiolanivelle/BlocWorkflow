@@ -1,4 +1,5 @@
 import 'package:blocworkflow/bloc/operation_bloc.dart';
+import 'package:blocworkflow/model/operation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -158,7 +159,9 @@ class _HomeState extends State<Home> {
                     errorBorder: InputBorder.none,
                     disabledBorder: InputBorder.none,
                   ),
-                  onTap: () {},
+                  onChanged: (firstNumber) {
+                    Operation.secondNumber = double.parse(firstNumber);
+                  },
                 ),
               ),
               SizedBox(height: 15),
@@ -183,7 +186,10 @@ class _HomeState extends State<Home> {
                     errorBorder: InputBorder.none,
                     disabledBorder: InputBorder.none,
                   ),
-                  onTap: () {},
+                  onChanged: (secondNumber) {
+                    print(secondNumber);
+                    Operation.secondNumber = double.parse(secondNumber);
+                  },
                 ),
               ),
               SizedBox(height: 15),
@@ -235,21 +241,25 @@ class _HomeState extends State<Home> {
 
   void onTriggerAdd(BuildContext context) {
     final operationBloc = BlocProvider.of<OperationBloc>(context);
-    operationBloc.add(OnClickAdd());
+    operationBloc
+        .add(OnClickAdd(Operation.firstNumber, Operation.secondNumber));
   }
 
   void onTriggerMinus(BuildContext context) {
     final operationBloc = BlocProvider.of<OperationBloc>(context);
-    operationBloc.add(OnClickMinus());
+    operationBloc
+        .add(OnClickMinus(Operation.firstNumber, Operation.secondNumber));
   }
 
   void onTriggerMultiply(BuildContext context) {
     final operationBloc = BlocProvider.of<OperationBloc>(context);
-    operationBloc.add(OnClickMultiply());
+    operationBloc
+        .add(OnClickMultiply(Operation.firstNumber, Operation.secondNumber));
   }
 
   void onTriggerDivide(BuildContext context) {
     final operationBloc = BlocProvider.of<OperationBloc>(context);
-    operationBloc.add(OnClickDivide());
+    operationBloc
+        .add(OnClickDivide(Operation.firstNumber, Operation.secondNumber));
   }
 }
