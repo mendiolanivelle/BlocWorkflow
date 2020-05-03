@@ -38,14 +38,14 @@ Widget buildLoginInitial(BuildContext context) {
               child: TextField(
                 style: TextStyle(
                     fontFamily: 'normMed', fontWeight: FontWeight.w900),
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   hintStyle: TextStyle(
                       fontFamily: 'normReg',
                       fontWeight: FontWeight.w300,
                       fontSize: 18,
                       color: Colors.black),
-                  hintText: ('Enter 1st Number'),
+                  hintText: ('Username'),
                   border: InputBorder.none,
                   focusedBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
@@ -60,16 +60,17 @@ Widget buildLoginInitial(BuildContext context) {
               height: 60,
               width: 200,
               child: TextField(
+                obscureText: true,
                 style: TextStyle(
                     fontFamily: 'normMed', fontWeight: FontWeight.w900),
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   hintStyle: TextStyle(
                       fontFamily: 'normReg',
                       fontWeight: FontWeight.w300,
                       fontSize: 18,
                       color: Colors.black),
-                  hintText: ('Enter 2nd Number'),
+                  hintText: ('Password'),
                   border: InputBorder.none,
                   focusedBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
@@ -94,7 +95,9 @@ Widget buildLoginInitial(BuildContext context) {
                 right: 70,
               ),
               splashColor: Colors.grey,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed('/profile');
+              },
               child: Text(
                 'Login',
                 style: TextStyle(
