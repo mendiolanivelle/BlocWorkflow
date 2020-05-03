@@ -5,8 +5,6 @@ part 'operation_event.dart';
 part 'operation_state.dart';
 
 class OperationBloc extends Bloc<OperationEvent, OperationState> {
-  double firstNumber;
-  double secondNumber;
   double totalNumber;
 
   @override
@@ -18,20 +16,20 @@ class OperationBloc extends Bloc<OperationEvent, OperationState> {
   ) async* {
     yield OperationInitial();
     if (event is OnClickAdd) {
-      OnClickAdd(this.firstNumber, this.secondNumber);
-      totalNumber = firstNumber + secondNumber;
+      OnClickAdd(event.firstNumber, event.secondNumber);
+      totalNumber = event.firstNumber + event.secondNumber;
       yield OperationRefresh(totalNumber);
     } else if (event is OnClickMinus) {
-      OnClickMinus(this.firstNumber, this.secondNumber);
-      totalNumber = firstNumber + secondNumber;
+      OnClickMinus(event.firstNumber, event.secondNumber);
+      totalNumber = event.firstNumber + event.secondNumber;
       yield OperationRefresh(totalNumber);
     } else if (event is OnClickMultiply) {
-      OnClickMultiply(this.firstNumber, this.secondNumber);
-      totalNumber = firstNumber + secondNumber;
+      OnClickMultiply(event.firstNumber, event.secondNumber);
+      totalNumber = event.firstNumber + event.secondNumber;
       yield OperationRefresh(totalNumber);
     } else if (event is OnClickDivide) {
-      OnClickDivide(this.firstNumber, this.secondNumber);
-      totalNumber = firstNumber + secondNumber;
+      OnClickDivide(event.firstNumber, event.secondNumber);
+      totalNumber = event.firstNumber + event.secondNumber;
       yield OperationRefresh(totalNumber);
     }
   }
