@@ -102,6 +102,7 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   FloatingActionButton(
+                    heroTag: 'Add',
                     onPressed: () {
                       onTriggerAdd(context);
                     },
@@ -109,6 +110,7 @@ class _HomeState extends State<Home> {
                     child: Icon(Icons.add),
                   ),
                   FloatingActionButton(
+                    heroTag: 'Minus',
                     onPressed: () {
                       onTriggerMinus(context);
                     },
@@ -116,6 +118,7 @@ class _HomeState extends State<Home> {
                     child: Icon(Icons.remove),
                   ),
                   FloatingActionButton(
+                    heroTag: 'Multiply',
                     onPressed: () {
                       onTriggerMultiply(context);
                     },
@@ -123,6 +126,7 @@ class _HomeState extends State<Home> {
                     child: Text('X'),
                   ),
                   FloatingActionButton(
+                    heroTag: 'Divide',
                     onPressed: () {
                       onTriggerDivide(context);
                     },
@@ -130,6 +134,27 @@ class _HomeState extends State<Home> {
                     child: Text('/'),
                   ),
                 ],
+              ),
+              SizedBox(height: 40),
+              FlatButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                color: Colors.black,
+                textColor: Colors.white,
+                disabledColor: Colors.grey,
+                disabledTextColor: Colors.black,
+                padding: EdgeInsets.all(20.0),
+                splashColor: Colors.grey,
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed('/login');
+                },
+                child: Text(
+                  'Login Page',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
+                ),
               ),
             ]));
   }
@@ -209,6 +234,7 @@ class _HomeState extends State<Home> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   FloatingActionButton(
+                    heroTag: 'Add',
                     onPressed: () {
                       onTriggerAdd(context);
                     },
@@ -216,6 +242,7 @@ class _HomeState extends State<Home> {
                     child: Icon(Icons.add),
                   ),
                   FloatingActionButton(
+                    heroTag: 'Minus',
                     onPressed: () {
                       onTriggerMinus(context);
                     },
@@ -223,6 +250,7 @@ class _HomeState extends State<Home> {
                     child: Icon(Icons.remove),
                   ),
                   FloatingActionButton(
+                    heroTag: 'Multiply',
                     onPressed: () {
                       onTriggerMultiply(context);
                     },
@@ -230,6 +258,7 @@ class _HomeState extends State<Home> {
                     child: Text('X'),
                   ),
                   FloatingActionButton(
+                    heroTag: 'Divide',
                     onPressed: () {
                       onTriggerDivide(context);
                     },
@@ -237,6 +266,25 @@ class _HomeState extends State<Home> {
                     child: Text('/'),
                   ),
                 ],
+              ),
+              SizedBox(height: 40),
+              FlatButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                color: Colors.black,
+                textColor: Colors.white,
+                disabledColor: Colors.grey,
+                disabledTextColor: Colors.black,
+                padding: EdgeInsets.all(20.0),
+                splashColor: Colors.grey,
+                onPressed: () {},
+                child: Text(
+                  'Login Page',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
+                ),
               ),
             ]));
   }
