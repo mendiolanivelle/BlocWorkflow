@@ -8,3 +8,12 @@ class OperationInitial extends OperationState {
   @override
   List<Object> get props => [];
 }
+
+class OperationRefresh extends OperationState {
+  final int result;
+
+  OperationRefresh(this.result);
+  @override
+  // TODO: implement props
+  List<Object> get props => [result];
+}
