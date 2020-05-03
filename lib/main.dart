@@ -9,14 +9,8 @@ import 'bloc/operation_bloc.dart';
 void main() => runApp(MaterialApp(initialRoute: '/', routes: {
       '/': (context) {
         return BlocProvider(
-          create: (context) => OperationBloc(),
-          child: Home(),
-        );
-      },
-      '/login': (context) {
-        return BlocProvider(
           create: (context) => LoginBloc(),
           child: Login(),
         );
-      }
+      },
     }));
