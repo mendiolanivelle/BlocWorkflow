@@ -1,4 +1,5 @@
 import 'package:blocworkflow/bloc/login_bloc.dart';
+import 'package:blocworkflow/model/account.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,7 +17,9 @@ class _LoginState extends State<Login> {
         ),
         body: BlocConsumer<LoginBloc, LoginState>(
           listener: (context, state) {
-            // TODO: implement listener
+            if (state is LoginSuccess) {
+              Navigator.of(context).pushReplacementNamed('/profile');
+            }
           },
           builder: (context, state) {
             return buildLoginInitial(context);
@@ -52,6 +55,9 @@ Widget buildLoginInitial(BuildContext context) {
                   errorBorder: InputBorder.none,
                   disabledBorder: InputBorder.none,
                 ),
+                onChanged: (username) {
+                  Account.username = username;
+                },
               ),
             ),
             SizedBox(height: 15),
@@ -77,6 +83,9 @@ Widget buildLoginInitial(BuildContext context) {
                   errorBorder: InputBorder.none,
                   disabledBorder: InputBorder.none,
                 ),
+                onChanged: (password) {
+                  Account.password = password;
+                },
               ),
             ),
             SizedBox(height: 40),
@@ -96,7 +105,7 @@ Widget buildLoginInitial(BuildContext context) {
               ),
               splashColor: Colors.grey,
               onPressed: () {
-                Navigator.of(context).pushReplacementNamed('/profile');
+                triggerLoginButton(context, Account.username, Account.password);
               },
               child: Text(
                 'Login',
@@ -106,4 +115,10 @@ Widget buildLoginInitial(BuildContext context) {
               ),
             ),
           ]));
+}
+
+void triggerLoginButton(
+    BuildContext context, String username, String password) {
+  final loginBloc = BlocProvider.of<LoginBloc>(context);
+  loginBloc.add(OnClickLogin(username, password));
 }
