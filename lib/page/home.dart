@@ -41,24 +41,25 @@ class _HomeState extends State<Home> {
                 height: 60,
                 width: 200,
                 child: TextField(
-                  style: TextStyle(
-                      fontFamily: 'normMed', fontWeight: FontWeight.w900),
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    hintStyle: TextStyle(
-                        fontFamily: 'normReg',
-                        fontWeight: FontWeight.w300,
-                        fontSize: 18,
-                        color: Colors.black),
-                    hintText: ('Enter 1st Number'),
-                    border: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    errorBorder: InputBorder.none,
-                    disabledBorder: InputBorder.none,
-                  ),
-                  onTap: () {},
-                ),
+                    style: TextStyle(
+                        fontFamily: 'normMed', fontWeight: FontWeight.w900),
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      hintStyle: TextStyle(
+                          fontFamily: 'normReg',
+                          fontWeight: FontWeight.w300,
+                          fontSize: 18,
+                          color: Colors.black),
+                      hintText: ('Enter 1st Number'),
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                    ),
+                    onChanged: (firstNumber) {
+                      Operation.firstNumber = double.parse(firstNumber);
+                    }),
               ),
               SizedBox(height: 15),
               Container(
@@ -66,24 +67,25 @@ class _HomeState extends State<Home> {
                 height: 60,
                 width: 200,
                 child: TextField(
-                  style: TextStyle(
-                      fontFamily: 'normMed', fontWeight: FontWeight.w900),
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    hintStyle: TextStyle(
-                        fontFamily: 'normReg',
-                        fontWeight: FontWeight.w300,
-                        fontSize: 18,
-                        color: Colors.black),
-                    hintText: ('Enter 2nd Number'),
-                    border: InputBorder.none,
-                    focusedBorder: InputBorder.none,
-                    enabledBorder: InputBorder.none,
-                    errorBorder: InputBorder.none,
-                    disabledBorder: InputBorder.none,
-                  ),
-                  onTap: () {},
-                ),
+                    style: TextStyle(
+                        fontFamily: 'normMed', fontWeight: FontWeight.w900),
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      hintStyle: TextStyle(
+                          fontFamily: 'normReg',
+                          fontWeight: FontWeight.w300,
+                          fontSize: 18,
+                          color: Colors.black),
+                      hintText: ('Enter 2nd Number'),
+                      border: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                    ),
+                    onChanged: (secondNumber) {
+                      Operation.secondNumber = double.parse(secondNumber);
+                    }),
               ),
               SizedBox(height: 15),
               Text(
@@ -160,7 +162,7 @@ class _HomeState extends State<Home> {
                     disabledBorder: InputBorder.none,
                   ),
                   onChanged: (firstNumber) {
-                    Operation.secondNumber = double.parse(firstNumber);
+                    Operation.firstNumber = double.parse(firstNumber);
                   },
                 ),
               ),
